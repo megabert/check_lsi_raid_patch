@@ -24,6 +24,5 @@ Have the following packages installed at your local workstation:
 
 ### Copy the Files
 
-Copy the two files as the Makefile output tells your
-
+Copy the one or two files as the Makefile output tells you
 
