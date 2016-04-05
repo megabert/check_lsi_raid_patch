@@ -7,7 +7,7 @@ The original check has bbu check enabled and will report
 a critical state if there is no bbu or a failed bbu. (bbu is 
 short hand for "battery backup unit" or "cache vault"). The
 patch disables the bbu check, so a nonexistent bbu does not
-cause the check to report critical. If you want to have
+cause the check to report a critical state. If you want to have
 the bbu check enabled, change line 1185 in check_lsi_raid
 to:
 
