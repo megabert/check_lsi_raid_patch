@@ -38,3 +38,8 @@ Have the following packages installed at your local workstation:
 
 Copy the one or two files as the Makefile output tells you
 
+### Update your server inventory
+
+Now go to the WATO Webinterface, update the list of available service.
+A new check lsi_raid should show up.
+
