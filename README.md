@@ -16,11 +16,11 @@ Have the following packages installed at your local workstation:
 
 ### Download the repository
 
-  git clone https://github.com/megabert/check_lsi_raid_patch
+    git clone https://github.com/megabert/check_lsi_raid_patch
 
 ### Run make
 
-  make
+    make
 
 ### Copy the Files
 
