@@ -31,6 +31,7 @@ Have the following packages installed at your local workstation:
 
 ### Run make
 
+    cd check_lsi_raid_patch
     make
 
 ### Copy the Files
