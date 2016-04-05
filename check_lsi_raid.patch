@@ -1,0 +1,38 @@
+--- check_lsi_raid	2016-04-05 17:24:47.345598918 +0200
++++ check_lsi_raid.new	2016-04-05 17:28:56.975608229 +0200
+@@ -1182,7 +1182,7 @@
+ 	push @statusLevel_a, $verboseValues_h;
+ 	push @statusLevel_a, $verboseCommands_a;
+ 	# Per default use a BBU
+-	my $bbu = 1;
++	my $bbu = 0;
+ 	my @enclosures;
+ 	my @logDevices;
+ 	my @physDevices;
+@@ -1307,13 +1307,22 @@
+ 		if(-f 'CmdTool.log'){ unlink 'CmdTool.log'}
+ 	}
+ 
+-	print ${$statusLevel_a[0]}." ";
+-	print getStatusString("Critical",\@statusLevel_a);
+-	print getStatusString("Warning",\@statusLevel_a);
++        my $global_status="";
++        if ( ${$statusLevel_a[0]} eq "OK" ) {
++                $global_status = "0";
++        } elsif ( ${$statusLevel_a[0]} eq "Warning" ) {
++                $global_status = "1";
++        } elsif ( ${$statusLevel_a[0]} eq "Critical" ) {
++                $global_status = "2";
++        }
++
++        print ($global_status." lsi_raid ");
+ 	my $perf_str = getPerfString(\@statusLevel_a);
+ 	if($perf_str){
+-		print "|".$perf_str;
++               $perf_str =~ s/ /\|/g;
++               print $perf_str;
+ 	}
++	print " ".${$statusLevel_a[0]}."\n";
+ 	if($VERBOSITY == 2 || $VERBOSITY == 3){
+ 		print "\n".getVerboseString(\@statusLevel_a, $controllerToCheck, $LDDevicesToCheck, $LDInitToCheck,
+ 		$PDDevicesToCheck, $PDInitToCheck, $PDRebuildToCheck)
